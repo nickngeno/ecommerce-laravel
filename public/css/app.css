@@ -84,3 +84,10 @@ img.slider-img{
     align-items: flex-start;
 
 }
+.search-box{
+    width: 500px !important;
+}
+.table img{
+    width: 100px;
+    height: auto;
+}

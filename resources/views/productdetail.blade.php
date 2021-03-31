@@ -11,15 +11,16 @@
 
         </div>
         <div class="col-md-6 pricing-detail">
-            <a href="/products">🔙 Go Back</a>
+        🔙<a href="/products">Go Back</a>
             <h3>Product price: ${{$product->price}} </h3>
             <p>Add the product to cart</p>
-            <form action="">
+
+            <form action="/addtocart" method="POST">
+            @csrf
                 <div class="form-group">
-                    <label for="">Quantity</label>
-                    <input type="number" name="quantity" min=0>
+                    <input type="hidden" name="product_id" value={{$product->id}} min=0>
                 </div>
-                <button class="btn btn-primary mt-2">Add to Cart</button>
+                <button class="btn btn-primary mt-2" type="submit">Add to Cart</button>
             </form>
             <button class="btn btn-success mt-2">Buy Now</button>
         </div>

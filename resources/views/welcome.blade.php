@@ -1,6 +1,6 @@
 @extends('master');
 @section('content')
-<div class="container-fluid ">
+<div class="container-fluid">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -31,7 +31,7 @@
 <div class="container">
     <div class="trending-products">
         @foreach($products as $product)
-        <a href="/productdetail/{{$product->id}}">
+        <a href="productdetail/{{$product->id}}">
             <div class="card mr-3">
                 <img class="card-img-top" src="{{$product->picture}}" alt="">
                 <div class="card-body">

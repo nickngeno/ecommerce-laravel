@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -35,11 +36,28 @@ class ProductController extends Controller
             $cart->product_id = $request->product_id;
             
             $cart->save();
+            
             return redirect('/products');
         }else{
             return redirect('login');
         }
        
     }
+    public static function cartnotification ()
+    {
+        $user_id = Session::get('user')['id'];
+        $result = count(Cart::where('user_id',$user_id)->get());
+        return  $result;
+    }
+
+    public function mycart()
+    {
+        $user_id = Session::get('user')['id'];
+        $result = Cart::where('user_id', $user_id)->get();
+
+        return view('cartdetails', ['products' => $result]);
+        
+    }
+
 
 }

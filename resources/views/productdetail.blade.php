@@ -13,8 +13,6 @@
         <div class="col-md-6 pricing-detail">
         🔙<a href="/products">Go Back</a>
             <h3>Product price: ${{$product->price}} </h3>
-            <p>Add the product to cart</p>
-
             <form action="/addtocart" method="POST">
             @csrf
                 <div class="form-group">

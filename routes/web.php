@@ -26,3 +26,4 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail']);
 Route::post('/search', [ProductController::class, 'search']);
 Route::post('addtocart', [ProductController::class, 'addtocart']);
+Route::get('mycart', [ProductController::class, 'mycart']);

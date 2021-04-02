@@ -1,9 +1,9 @@
-<?php 
+<?php
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Session;
 $totalcart = ProductController::cartnotification();
-
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/products">KimmyJerseys</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,22 @@ $totalcart = ProductController::cartnotification();
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/mycart">Cart({{$totalcart}})</a>
+                    <a class="nav-link" href="/mycart">🛒Cart <?php echo ($totalcart == null) ? "" :  "(" . $totalcart . ")"; ?></a>
                 </li>
+                @if(Session::has('user'))
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Session::get('user')['name']}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

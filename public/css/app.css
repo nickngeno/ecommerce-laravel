@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap");
 * {
     box-sizing: border-box;
     line-height: 1.8;
-
 }
 body {
-    padding: 0;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    font-family: "Raleway", sans-serif;
+    position: relative;
+}
+.content{
+    padding-top: 80px;
 }
 .login-wrapper {
     padding-top: 300px;
@@ -18,11 +21,94 @@ body {
     padding: 1rem 2rem;
     background-color: #dadada;
     border-radius: 0.5rem;
-    
+}
+
+.carousel-item img {
+    width: 600px !important;
+}
+.slider-text {
+    background-color: rgba(133, 132, 141, 0.555) !important;
+}
+.trending-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+.trending-products img {
+    width: 150px;
+    height: auto;
+}
+.trending-products .card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #000 !important;
+}
+.trending-products a {
+    text-decoration: none !important;
+}
+.card span {
+    color: #000 !important;
+}
+.description {
+    margin-top: 1rem;
+}
+.pricing-detail {
+    padding-top: 5rem;
+}
+.product-detail img {
+    width: 340px;
+    height: auto;
+}
+
+.cart-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.search-box {
+    width: 500px !important;
+}
+.table img {
+    width: 100px;
+    height: auto;
+}
+.total-cost {
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.cart-div{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.cart-buttons{
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem;
+
 }
 .footer {
-    color: #000;
-    padding: 0.5rem 1rem;
+    margin-top: 2rem;
 }
 .footer ul {
     list-style: none;
@@ -33,69 +119,4 @@ body {
     display: inline-block;
     margin-right: 1rem;
     cursor: pointer;
-}
-.carousel-item img{
-    width: 600px !important;
-}
-.slider-text{
-    background-color: rgba(133, 132, 141, 0.555) !important;
-    
-}
-.trending-products{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-}
-.trending-products img{
-    width: 150px;
-    height: auto;
-    
-}
-.trending-products .card{
-    cursor: pointer;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    color: #000 !important;
-}
-.trending-products a{
-    text-decoration: none !important;
-}
-.card span{
-    color: #000 !important;
-}
-.description{
-    margin-top: 1rem;
-}
-.pricing-detail{
-    padding-top: 5rem;
-}
-.product-detail img{
-    width: 340px;
-    height: auto;
-}
-
-.cart-buttons{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-
-}
-.search-box{
-    width: 500px !important;
-}
-.table img{
-    width: 100px;
-    height: auto;
-}
-.total-cost{
-    background-color: #d9d9d9;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-
 }

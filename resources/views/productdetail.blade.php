@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
-<div class="container">
+<div class="container content">
     <div class="row">
         <div class="col-md-6 product-detail">
-            <h2>{{$product->name}}</h2>
+            <h3>{{$product->name}}</h3>
             <img src="{{$product->picture}}" alt="">
             <h3 class="description">Description</h3>
             <hr>

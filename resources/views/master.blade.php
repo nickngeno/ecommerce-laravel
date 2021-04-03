@@ -12,14 +12,15 @@
 
     <!-- Latest compiled and minified JavaScript -->
 
-    <link rel="stylesheet" href={{ URL::asset('css/app.css') }} >
+    <link rel="stylesheet" href={{ URL::asset('css/app.css') }}>
 </head>
 
 <body>
-    {{View::make("header")}}
-    @yield("content")
-    {{View::make("footer")}}
-
+    <div class="container">
+        {{View::make("header")}}
+        @yield("content")
+        {{View::make("footer")}}
+    </div>
 
 </body>
 

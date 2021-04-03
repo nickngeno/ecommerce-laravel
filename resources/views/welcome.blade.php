@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="container content">
+<div class="content">
     <div class="row">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">

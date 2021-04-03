@@ -58,21 +58,49 @@ class ProductController extends Controller
     {
         if (Session::exists('user')) {
             $user_id = Session::get('user')['id'];
-            $products = DB::table('cart')
-                ->join('products', 'cart.product_id', '=', 'products.id')
-                ->where('cart.user_id','=', $user_id)
-                ->select('products.*','cart.id as cart_id')
-                ->get();
+            if (Cart::where('user_id', $user_id)->count() > 0) {
+                $products = DB::table('cart')
+                    ->join('products', 'cart.product_id', '=', 'products.id')
+                    ->where('cart.user_id', '=', $user_id)
+                    ->select('products.*', 'cart.id as cart_id')
+                    ->get();
+                $amounts = $this->cartcheckout();
 
-            return view('cartdetails', ['products' => $products]);
+                return view('cartdetails', ['products' => $products, 'amounts' => $amounts]);
+            } else {
+                return view('cartdetails', ['products' => '', 'message' => "Your cart is empty!"]);
+            };
         } else {
             return view('cartdetails', ['message' => "Your cart is empty!"]);
         }
     }
 
-    public function removefromcart($id){
+    public function removefromcart($id)
+    {
         $item  = Cart::find($id);
         $item->delete();
         return back();
+    }
+
+    public function cartcheckout()
+    {
+        if (Session::exists('user')) {
+            $user_id = Session::get('user')['id'];
+            $cost = DB::table('cart')
+                ->join('products', 'cart.product_id', '=', 'products.id')
+                ->where('cart.user_id', '=', $user_id)
+                ->sum('products.price');
+            $vat = floatval(0.16 * $cost);
+            $totalcost = $vat + $cost;
+
+            $amounts = [$cost, $vat, $totalcost];
+            return $amounts;
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    public function checkout(){
+        return view('checkout');
     }
 }

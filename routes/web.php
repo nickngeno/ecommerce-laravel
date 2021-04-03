@@ -29,3 +29,4 @@ Route::post('addtocart', [ProductController::class, 'addtocart']);
 Route::get('mycart', [ProductController::class, 'mycart']);
 Route::get('/logout', [UserController::class, 'logout']);
 Route::get('/removefromcart/{id}', [ProductController::class, 'removefromcart']);
+Route::get('/checkout', [ProductController::class, 'checkout']);

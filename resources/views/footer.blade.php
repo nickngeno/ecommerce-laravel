@@ -1,11 +1,5 @@
-<div class="footer-section bg-light">
-    <div class="container">
-        <div class="footer">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </div>
+<footer class="container bg-light">
+    <div class="row">
+        <p>&copy;Made with ❤ by <span>Nicholas Ng'eno</span></p>
     </div>
-</div>
+</footer>

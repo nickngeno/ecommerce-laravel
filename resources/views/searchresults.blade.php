@@ -1,13 +1,13 @@
 @extends('master')
 @section('content')
-<div class="container">
+<div class="content">
     <div class="row d-flex justify-content-between">
         <p>results</p>
         <a href="/products">🔙 Go Back</a>
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <table class="table">
                 <tr>
                     <th>ID</th>
@@ -15,6 +15,7 @@
                     <th>Description</th>
                     <th>Price</th>
                     <th>Pic</th>
+                    <th></th>
                 </tr>
                 @foreach ($results as $result)
                  <tbody>

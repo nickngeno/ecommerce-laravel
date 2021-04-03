@@ -1,8 +1,9 @@
 @extends('master')
 @section('content')
-<div class="container content">
+<div class="content">
     <h5 style="font-weight: bold;">My Cart</h3>
-        @if(session()->has('user'))
+        <!-- @php echo $products @endphp -->
+        @if(session()->has('user') && $products != null)
         <div class="row">
             <div class="col-md-12">
                 <table class="table">
@@ -34,22 +35,22 @@
             <div class="col-md-12 cart-buttons">
                 <div>
                     <a href="/products" class="btn btn-warning">Proceed to Shop</a>
-                     <a href="#" class="btn btn-success">Buy Now</a>
+                    <a href="/checkout" class="btn btn-success">Buy Now</a>
                 </div>
 
                 <table class="table" style="width: 400px;">
                     <tbody>
                         <tr>
                             <th>Subtotal</th>
-                            <td>120</td>
+                            <td>{{$amounts[0]}}</td>
                         </tr>
                         <tr>
                             <th>VAT</th>
-                            <td> 0</td>
+                            <td>{{$amounts[1]}}</td>
                         </tr>
                         <tr>
                             <th>Total</th>
-                            <td><strong>Ksh 120</strong></td>
+                            <td><strong>$ {{$amounts[2]}} </strong></td>
                         </tr>
                     </tbody>
                     <tfoot style="text-align: center; font-style:italic">
@@ -60,6 +61,12 @@
                     </tfoot>
                 </table>
             </div>
+        </div>
+        @elseif(session()->has('user') && $message != null)
+        <div class="empty-cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <p style="text-align: center;padding:1rem; font-style:italic">{{$message}}</p>
+            <p><a href="/products" class="btn btn-warning"> Start Shopping</a></p>
         </div>
         @else
         <div class="empty-cart">

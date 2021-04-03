@@ -1,7 +1,7 @@
 @extends('master')
 @section("content")
 
-<div class="container login-wrapper">
+<div class="login-wrapper">
     <div class="row">
         <div class="col-md-4 offset-md-4 m-auto login-form">
             <form action="login" method="POST">

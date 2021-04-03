@@ -23,7 +23,7 @@ $totalcart = ProductController::cartnotification();
             </ul>
             <form class="d-flex" action="/search" method="POST">
                 @csrf
-                <input class="form-control me-2 search-box " name="name" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2 search-box  input-md " name="name" type="search" placeholder="Search" aria-label="Search" required>
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <ul class="navbar-nav">

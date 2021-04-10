@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Carbon\Doctrine\CarbonType;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -100,7 +101,49 @@ class ProductController extends Controller
         }
     }
 
-    public function checkout(){
-        return view('checkout');
+    public function checkout()
+    {
+        $amount = $this->cartcheckout();
+        return view('checkout', ['amounts' => $amount]);
+    }
+
+    public function orderNow(Request $request)
+    {
+        $user_id = Session::get('user')['id'];
+        $mycart = Cart::where('user_id', $user_id)->get();
+        foreach ($mycart as $cart) {
+            $order = new Order();
+            $order->user_id = $user_id;
+            $order->product_id = $cart->product_id;
+            $order->address = $request->address;
+            $order->status = "pending";
+            $order->payment_status = "paid";
+            $order->transactionID = $request->transactionID;
+            $order->save();
+
+            Cart::where('user_id', $user_id)->delete();
+
+        }
+
+        return redirect('/');
+    }
+
+    public function myOrders (){
+        if (Session::exists('user')) {
+            $user_id = Session::get('user')['id']; 
+            if(Order::where('user_id', $user_id)->count() > 0){
+                $myorders = DB::table('products')
+                        ->join('orders', 'orders.product_id', '=', 'products.id')
+                        ->where('orders.user_id', '=', $user_id)
+                        ->get();
+
+                    return view('myorders', ['myorders' => $myorders]);
+            }else{
+                return view('myorders', ['myorders' => "", 'message' => "You dont have any order yet!"]);
+            }
+        }else
+         {
+            return view('myorders', ['message' => "You dont have any order yet!"]);
+       }
     }
 }

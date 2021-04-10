@@ -18,7 +18,7 @@ $totalcart = ProductController::cartnotification();
                     <a class="nav-link" href="/products">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="/orders">Orders</a>
                 </li>
             </ul>
             <form class="d-flex" action="/search" method="POST">
@@ -33,7 +33,7 @@ $totalcart = ProductController::cartnotification();
                 @if(Session::has('user'))
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Session::get('user')['name']}}
+                        {{ Session::get('user')['firstname']}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/logout">Logout</a></li>
@@ -42,6 +42,9 @@ $totalcart = ProductController::cartnotification();
                 @else
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register">Register</a>
                 </li>
                 @endif
             </ul>

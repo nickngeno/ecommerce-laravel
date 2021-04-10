@@ -2,7 +2,6 @@
 @section('content')
 <div class="content">
     <h5 style="font-weight: bold;">My Cart</h3>
-        <!-- @php echo $products @endphp -->
         @if(session()->has('user') && $products != null)
         <div class="row">
             <div class="col-md-12">

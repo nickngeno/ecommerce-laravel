@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="content">
+<div class="container content">
     <div class="row d-flex justify-content-between">
         <p>results</p>
         <a href="/products">🔙 Go Back</a>

@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="content">
+<div class="container content">
     <div class="row">
         <div class="col-md-6 product-detail">
             <h3>{{$product->name}}</h3>

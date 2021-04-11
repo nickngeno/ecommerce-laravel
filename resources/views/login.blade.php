@@ -1,15 +1,15 @@
 @extends('master')
 @section("content")
 
-<div class="login-wrapper">
+<div class="container content">
     @if(Session::has('success'))
     <div class="alert alert-success">
         <p>{{Session::get('success') }}</p>
         
     </div>
     @endif
-    <div class="row">
-        <div class="col-md-5 offset-md-4 m-auto login-form">
+    <div class="row login-wrapper">
+        <div class=" col-md-5 shadow-lg p-5 mb-5 rounded">
             <form action="login" method="POST">
                 @csrf
                 <div class="form-group row mb-3">

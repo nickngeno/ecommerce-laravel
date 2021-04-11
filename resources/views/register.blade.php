@@ -1,8 +1,8 @@
 @extends('master')
 @section("content")
 
-<div class="login-wrapper">
-    <div class="row">
+<div class="container content">
+    <div class="row login-wrapper">
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -12,7 +12,7 @@
             </ul>
         </div>
         @endif
-        <div class="col-md-5 offset-md-4 m-auto login-form">
+        <div class="col-md-5 shadow-lg p-5 mb-5 rounded">
             <form action="/register" method="POST">
                 @csrf
                 <div class="row mb-3">

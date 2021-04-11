@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="content">
+<div class="container content">
     <h5 style="font-weight: bold;">My Orders</h3>
         @if(session()->has('user') && $myorders != null)
         <!-- @php printf($myorders) @endphp -->

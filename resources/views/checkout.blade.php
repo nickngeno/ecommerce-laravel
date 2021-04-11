@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 
-<div class="content">
+<div class="container content">
     <h5 style="font-weight: bold;">My Cart</h3>
         <div class="row">
             <div class="col-md-8">
